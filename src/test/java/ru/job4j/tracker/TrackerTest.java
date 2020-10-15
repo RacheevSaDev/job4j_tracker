@@ -39,4 +39,19 @@ public class TrackerTest {
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
     }
+
+    @Test
+    public void findByNameWhen2equalNames() {
+        Tracker tracker = new Tracker();
+        Item bug1 = new Item();
+        bug1.setName("Bug");
+        tracker.add(bug1);
+        Item bug2 = new Item();
+        bug2.setName("Bug");
+        tracker.add(bug2);
+        Item[] bugs = tracker.findByName("Bug");
+        assert(bugs.length == 2);
+        assert(bugs[0].getName().equals("Bug"));
+        assert(bugs[0].getName().equals(bugs[1].getName()));
+    }
 }

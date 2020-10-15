@@ -27,7 +27,7 @@ public class Tracker {
                 foundItems[foundSize++] = item;
             }
         }
-        return foundItems;
+        return Arrays.copyOf(foundItems, foundSize);
     }
 
     public Item[] findAll() {
