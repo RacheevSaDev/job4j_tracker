@@ -15,7 +15,7 @@ public class StartUI {
                 System.out.println("=== Create a new Item ====");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
-                Item item = new Item(this.nextId++, name);
+                Item item = new Item(name);
                 tracker.add(item);
             } else if (select == 1) {
                 System.out.println("=== Show all items ====");
