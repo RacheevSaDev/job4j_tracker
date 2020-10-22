@@ -11,7 +11,7 @@ public class StartUI {
             int select = Integer.valueOf(input.askStr("Enter id: "));
             if (select == 0) {
                 System.out.println("=== Create a new Item ====");
-                String name = input.askStr("Enter id: ");
+                String name = input.askStr("Enter name: ");
                 Item item = new Item(name);
                 tracker.add(item);
             } else if (select == 1) {
@@ -23,8 +23,7 @@ public class StartUI {
             } else if (select == 2) {
                 System.out.println("=== Edit item ====");
                 int id = Integer.valueOf(input.askStr("Enter id: "));
-                System.out.print("Enter name: ");
-                String name = input.askStr("Enter id: ");
+                String name = input.askStr("Enter name: ");
                 Item newItem = new Item(id, name);
                 boolean isEdited = tracker.replace(id, newItem);
                 if (isEdited) {
@@ -52,7 +51,7 @@ public class StartUI {
                 }
             } else if (select == 5) {
                 System.out.println("=== Find items by name ====");
-                String name = input.askStr("Enter id: ");
+                String name = input.askStr("Enter name: ");
                 Item[] foundItems = tracker.findByName(name);
                 if (foundItems.length > 0) {
                     for (Item item : foundItems) {
