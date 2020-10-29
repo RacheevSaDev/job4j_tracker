@@ -11,6 +11,7 @@ public class ReplaceItem implements UserAction {
     public String name() {
         return "Replace item";
     }
+
     @Override
     public boolean execute(Input input, Tracker tracker) {
         System.out.println("=== Edit item ====");
@@ -19,9 +20,9 @@ public class ReplaceItem implements UserAction {
         Item newItem = new Item(id, name);
         boolean isEdited = tracker.replace(id, newItem);
         if (isEdited) {
-            System.out.println("Заявка успешно отредактирована.");
+            out.println("Заявка успешно отредактирована.");
         } else {
-            System.out.println("Заявка с таким id не найдена.");
+            out.println("Заявка с таким id не найдена.");
         }
         return true;
     }
