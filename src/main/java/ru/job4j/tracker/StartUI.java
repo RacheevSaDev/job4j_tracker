@@ -10,9 +10,15 @@ public class StartUI {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
-            int select = input.askInt("Select: ");
+            int select = -1;
+            select = input.askInt("Select: ");
+            try {
             UserAction action = actions[select];
             run = action.execute(input, tracker);
+            } catch(ArrayIndexOutOfBoundsException obe) {
+                out.println("Wrong input, you can select: 0 .. " + (actions.length - 1));
+                continue;
+            }
         }
     }
 
@@ -25,7 +31,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ConsoleInput();
+        Input input = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
