@@ -1,44 +1,45 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Tracker {
-    private final Item[] items = new Item[100];
+    private final List<Item> items = new ArrayList<>();
     private int ids = 1;
     private int size = 0;
 
     public Item add(Item item) {
         item.setId(ids++);
-        items[size++] = item;
+        items.add(item);
         return item;
     }
 
     public Item findById(int id) {
         int index = indexOf(id);
-        return index != -1 ? items[index] : null;
+        return index != -1 ? items.get(index): null;
     }
 
-    public Item[] findByName(String key) {
-        Item[] foundItems = new Item[this.size];
-        int foundSize = 0;
-        for (int i = 0; i < this.size; i++) {
-            Item item = items[i];
-            if (key.equals(item.getName())) {
-                foundItems[foundSize++] = item;
+    public List<Item> findByName(String key) {
+        List<Item> foundItems = new ArrayList<>();
+        for (int i = 0; i < items.size(); i++) {
+            Item selectedItem=items.get(i);
+            if (key.equals(selectedItem.getName())) {
+                foundItems.add(selectedItem) ;
             }
         }
-        return Arrays.copyOf(foundItems, foundSize);
+        return foundItems;
     }
 
-    public Item[] findAll() {
-        return Arrays.copyOf(this.items, this.size);
+    public List<Item> findAll() {
+        return items;
     }
 
     public boolean replace(int id, Item item) {
         int replaceIndex = indexOf(id);
         if (replaceIndex != -1) {
             item.setId(id);
-            this.items[replaceIndex] = item;
+            items.add(replaceIndex,item);
             return true;
         }
         return false;
@@ -47,11 +48,7 @@ public class Tracker {
     public boolean delete(int id) {
         int index = indexOf(id);
         if (index != -1) {
-            int start = index + 1;
-            int length = size - index;
-            System.arraycopy(this.items, start, this.items, index, length);
-            this.items[size - 1] = null;
-            size--;
+            items.remove(index);
             return true;
         }
         return false;
@@ -59,9 +56,10 @@ public class Tracker {
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
-            if (items[index].getId() == id) {
-                rsl = index;
+        for (int i=0;i<items.size();i++) {
+            Item selectedItem=items.get(i);
+            if (selectedItem.getId() == id) {
+                rsl = i;
                 break;
             }
         }
