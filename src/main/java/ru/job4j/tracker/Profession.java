@@ -1,5 +1,4 @@
 package ru.job4j.tracker;
-
 import java.time.LocalDate;
 
 public class Profession {
@@ -11,8 +10,4 @@ public class Profession {
     public String getName() {
         return name;
     }
-
-
-
-
 }

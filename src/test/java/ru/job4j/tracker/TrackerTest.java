@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
 
@@ -53,8 +54,8 @@ public class TrackerTest {
         bug2.setName("Bug");
         tracker.add(bug2);
         List<Item> bugs = tracker.findByName("Bug");
-        assert(bugs.size() == 2);
-        assert(bugs.get(0).getName().equals("Bug"));
-        assert(bugs.get(0).getName().equals(bugs.get(1).getName()));
+        assertEquals(2, bugs.size());
+        assertEquals("Bug", bugs.get(0).getName());
+        assertEquals(bugs.get(1).getName(), bugs.get(0).getName());
     }
 }

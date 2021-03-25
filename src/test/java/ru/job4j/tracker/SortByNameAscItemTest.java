@@ -11,16 +11,16 @@ public class SortByNameAscItemTest {
     @Test
     public void sortByNameAscItem() {
         List<Item> items = new ArrayList<>();
-        items.add(new Item(1,"CFix bugs"));
-        items.add(new Item(3,"DReboot server"));
-        items.add(new Item(2,"AImpl task"));
+        items.add(new Item(1, "CFix bugs"));
+        items.add(new Item(3, "DReboot server"));
+        items.add(new Item(2, "AImpl task"));
 
         items.sort(new SortByNameAscItem());
 
         List<Item> expected = new ArrayList<>();
-        expected.add(new Item(2,"AImpl task"));
-        expected.add(new Item(1,"CFix bugs"));
-        expected.add(new Item(3,"DReboot server"));
+        expected.add(new Item(2, "AImpl task"));
+        expected.add(new Item(1, "CFix bugs"));
+        expected.add(new Item(3, "DReboot server"));
 
         Assert.assertEquals(items, expected);
     }

@@ -13,6 +13,7 @@ public class FindItemsByName implements UserAction {
     public String name() {
         return "Find by name";
     }
+
     @Override
     public boolean execute(Input input, Tracker tracker) {
         out.println("=== Find items by name ====");

@@ -34,14 +34,14 @@ public class ValidateInputTest {
     public void whenValidManyInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"1","2","3"}
+                new String[] {"1", "2", "3"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int selected[] = new int[3];
+        int[] selected = new int[3];
         for (int i = 0; i < 3; i++) {
             selected[i] = input.askInt("Enter menu:");
         }
-        assertArrayEquals(selected,new int[]{1,2,3});
+        assertArrayEquals(selected, new int[]{1, 2, 3});
     }
 
     @Test
