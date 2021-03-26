@@ -18,4 +18,8 @@ public class PassportOffice {
     public Citizen get(String passport) {
         return citizens.get(passport);
     }
+
+    public Map<String, Citizen> getCitizens() {
+        return citizens;
+    }
 }
