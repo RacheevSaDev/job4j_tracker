@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 public class StringCompareTest {
     @Test
-    public void whenStringsAreNullThenZero () {
+    public void whenStringsAreNullThenZero() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
                 "",
