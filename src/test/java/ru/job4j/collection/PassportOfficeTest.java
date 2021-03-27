@@ -19,11 +19,9 @@ public class PassportOfficeTest {
     public void addDouble() {
         Citizen citizen1 = new Citizen("2f44a", "Petr Arsentev");
         Citizen citizen2 = new Citizen("2f44a", "Petr Arsentev");
-        PassportOffice office1 = new PassportOffice();
-        office1.add(citizen1);
-        office1.add(citizen2);
-        PassportOffice office2 = new PassportOffice();
-        office2.add(citizen1);
-        assertThat(office1.getCitizens(), is(office2.getCitizens()));
+        PassportOffice office = new PassportOffice();
+        office.add(citizen1);
+        boolean isSuccessAdd = office.add(citizen2);
+        assertThat(isSuccessAdd,is(false));
     }
 }
