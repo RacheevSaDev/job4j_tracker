@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
 public class Array2ToFlatArrayTest {
     @Test
     public void convertArray2x2ToFlatList() {
-        Integer[][] array2= new Integer[2][2];
+        Integer[][] array2 = new Integer[2][2];
         array2[0][0] = 1;
         array2[0][1] = 2;
         array2[1][0] = 3;
