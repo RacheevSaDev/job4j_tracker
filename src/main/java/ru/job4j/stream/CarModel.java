@@ -98,6 +98,6 @@ public class CarModel {
                 .buildHeight(1425)
                 .buildYear(1999)
                 .build();
-        System.out.println(car.toString());
+        System.out.println(car);
     }
 }
