@@ -21,7 +21,7 @@ public class FindItemsByName implements UserAction {
         List<Item> foundItems = tracker.findByName(name);
         if (foundItems.size() > 0) {
             for (Item item : foundItems) {
-                out.println(item.toString());
+                out.println(item);
             }
         } else {
             out.println("Заявки с таким именем не найдены.");
