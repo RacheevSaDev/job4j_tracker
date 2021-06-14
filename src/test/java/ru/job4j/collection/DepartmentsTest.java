@@ -14,6 +14,7 @@ public class DepartmentsTest {
         List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
     }
+
     @Test
     public void whenManyElementsMissed() {
         List<String> input = Arrays.asList("k1/sk1", "k2/sk1/ssk2");
